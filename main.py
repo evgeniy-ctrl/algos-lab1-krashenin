@@ -68,8 +68,16 @@ elif x % 4 != 0:
 
 hint: https://letpy.com/handbook/builtins/reversed/
 """
+def is_palindrome(s):
+    cleaned = ''.join(c for c in s.lower() if c.isalnum())
+    return list(cleaned) == list(reversed(cleaned))
 
-# Замените это своим кодом
+user_input = input("Введите слово: ")
+
+if is_palindrome(user_input):
+    print("Это палиндром!")
+else:
+    print("Это не палиндром.")
 
 """
  _____         _      _____ 
