@@ -92,7 +92,17 @@ else:
 hint: https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%B0%D0%BB
 """
 
-# Замените это своим кодом
+n = int(input("Введите число: "))
+
+factorial = 1
+if n < 0:
+    print("Факториал отрицательного числа не определён!")
+elif n == 0:
+    print("Факториал 0 равен 1")
+else:
+    for i in range(1, n + 1):
+        factorial *= i
+    print(f"Факториал {n} равен {factorial}")
 
 """
  _____         _       ____ 
@@ -107,8 +117,30 @@ hint: https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D
 hint: x <= 1 - не простые числа
 hint 2: %
 """
+def is_prime(n):
+    
+    if n <= 1:
+        return False
+    
+    elif n == 2:
+        return True
+    
+    elif n % 2 == 0:
+        return False
+    
+    for i in range(3, int(n**0.5) + 1, 2):
+        if n % i == 0:
+            return False
+    return True
 
-# Замените это своим кодом
+
+num = int(input("Введите число для проверки: "))
+
+
+if is_prime(num):
+    print(f"{num} - простое число")
+else:
+    print(f"{num} - не простое число")
 
 """
  _____         _      ______
@@ -122,8 +154,15 @@ hint 2: %
 
 hint: циклы
 """
+number = input("Введите число: ")
+sum_of_digits = 0
 
-# Замените это своим кодом
+for digit in number:
+    if digit.isdigit():  
+        sum_of_digits += int(digit)
+
+print(f"Сумма цифр числа {number} равна {sum_of_digits}")
+
 
 """
  _____         _      _____ 
@@ -139,7 +178,16 @@ hint: 1, 1, 2, 3 https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D0%BB%D0%B0_%D
 hint 2: попробуйте решить с помощью рекурсии
 """
 
-# Замените это своим кодом
+def fibonacci_iterative(n):
+     a, b = 0, 1
+     result = []
+     while a <= n:  
+         result.append(a)
+         a, b = b, a + b
+     return result
+
+limit = int(input("Введите предел последовательности: "))
+print(fibonacci_iterative(limit))
 
 
 
